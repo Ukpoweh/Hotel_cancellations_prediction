@@ -45,7 +45,7 @@ def main():
 
     #transformed_input = feature_engineering(input_df)
 
-    scaled_data = scaler.transform(np.array([user_input]))
+    scaled_data = scaler.transform(np.array([user_input]))  #scaling the input
     if st.button('Predict'):
       prediction = model.predict(scaled_data)
       output = prediction[0]
