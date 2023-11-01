@@ -1,6 +1,5 @@
 import streamlit as st
 import numpy as np
-import pandas as pd
 import pickle
 
 model = pickle.load(open("model.pkl", 'rb'))
@@ -39,11 +38,6 @@ def main():
     user_input = [no_of_adults, no_of_children, no_of_weekend_nights, no_of_week_nights, type_of_meal_plan, required_car_parking_space, room_type_reserved,
                   lead_time, arrival_year, arrival_month, arrival_date, market_segment_type, repeated_guest, no_of_previous_cancellations,
                   no_of_previous_bookings_not_cancelled, avg_price_per_room, no_of_special_requests, no_of_individuals, no_of_days_booked]
-    #columns = [str(x) for x in user_input]
-    #global input_df
-    #input_df = pd.DataFrame(np.array([user_input]))
-
-    #transformed_input = feature_engineering(input_df)
 
     scaled_data = scaler.transform(np.array([user_input]))  #scaling the input
     if st.button('Predict'):
